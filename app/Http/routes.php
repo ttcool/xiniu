@@ -22,12 +22,9 @@
 
     // 发送密码重置链接路由
     Route::get('password/email', 'Auth\PasswordController@getEmail');
-    //Route::post('password/email', 'Auth\PasswordController@postEmail');
-
-    //Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-    //Route::post('password/reset', 'Auth\PasswordController@postReset');
-
-   // Password Reset Routes...
     Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm');
     Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
     Route::post('password/reset', 'Auth\PasswordController@postReset');
+
+    Route::get('blog', 'Blog\BlogController@index');
+    Route::get('blog/{slug}', 'Blog\BlogController@showPost');
