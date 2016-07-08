@@ -1,9 +1,13 @@
-<html>
-    <head>
-        <title>{{ $post->title }}</title>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body>
+@extends('layouts.master')
+
+<title>犀牛-{{ config('blog.title') }}</title>
+
+@section('sidebar')
+    @parent
+@endsection
+
+@section('content')
+        <div  style="margin-top:50px;" class="col-md-4 col-md-offset-2 col-sm-8 col-sm-offset-2">
         <div class="container">
             <h1>{{ $post->title }}</h1>
             <h5>{{ $post->published_at }}</h5>
@@ -14,5 +18,5 @@
                 « Back
             </button>
         </div>
-    </body>
-</html>
+        </div>
+@endsection

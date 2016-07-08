@@ -1,10 +1,14 @@
-<html>
-    <head>
-        <title>{{ config('blog.title') }}</title>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body>
+@extends('layouts.master')
+
+<title>犀牛-{{ config('blog.title') }}</title>
+
+@section('sidebar')
+    @parent
+@endsection
+
+@section('content')
         <div class="container">
+           <div  style="margin-top:50px;" class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
             <h1>{{ config('blog.title') }}</h1>
             <h5>Page {{ $posts->currentPage() }} of {{ $posts->lastPage() }}</h5>
             <hr>
@@ -21,6 +25,6 @@
             </ul>
             <hr>
             {!! $posts->render() !!}
+          </div>
         </div>
-    </body>
-</html>
+@endsection
