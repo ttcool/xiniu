@@ -28,3 +28,14 @@
 
     Route::get('blog', 'Blog\BlogController@index');
     Route::get('blog/{slug}', 'Blog\BlogController@showPost');
+
+    //admin路由
+    Route::get('admin',function(){
+        return redirect('/admin/post');
+    });
+
+    Route::group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
+    Route::resource('admin/post', 'PostController');
+    Route::resource('admin/tag', 'TagController',['except' => 'show']);
+    Route::get('admin/upload', 'UploadController@index');
+    });
